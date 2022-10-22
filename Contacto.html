@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<!----------------------------------Head-------------------------------->
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto - TopGAMES</title>
+    <link rel="icon" type="png" href="https://cdn1.iconfinder.com/data/icons/locations-redesign/48/Games1-512.png" />
+    <!-----Fuentes----->
+    <link rel="stylesheet" href="EstiloProyecto.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Gemunu+Libre&family=Oswald:wght@300&family=Poppins:wght@300&family=Silkscreen:wght@700&display=swap"
+        rel="stylesheet">
+    <!-----Scritps----->
+    <script src="scripts.js"></script>
+    <script src="https://kit.fontawesome.com/814a59788f.js" crossorigin="anonymous"></script>
+</head>
+
+<!-------------------------------Body--------------------------->
+
+<body>
+    <!-------------------------------Header----------------------------->
+    <header>
+        <div id="tituloPagina">
+            <div class="logo-efect"><img onload="animacion()"
+                    src="https://cdn1.iconfinder.com/data/icons/locations-redesign/48/Games1-512.png" alt="">
+            </div>
+            <h1><a href="Index.html">Top GAMES</a></h1>
+        </div>
+        <nav>
+            <ul class="menu_principal">
+                <li><a href="Quienes-Somos.html">Quienes Somos</a></li>
+                <li><a href="Opiniones.html">Opiniones</a></li>
+                <li><a href="Contacto.html">Contacto</a></li>
+                <div id="divRegistro">
+                    <li><a id="registro" href="">Suscribirse</a></li>
+                </div>
+            </ul>
+        </nav>
+        <!-----------------------Hamburger Menu------------------------->
+        <i id="menuIcon" class="fa-solid fa-bars" onclick="desplegarMenu()"></i>
+    </header>
+
+    <main>
+        <div class="mainContent ">
+            <h2>Contactanos!</h2>
+            <div class="articulos contacto" id="contactForm">
+                <p>Podes contactarnos a traves de las redes sociales o mediante el siguiente formulario! Tambien podes
+                    encontrarnos en nuestra sucursal en CABA.</p><br>
+                <div id="divFormulario">
+                    <form action="" id="formulario">
+                        <div id="formParte1">
+                        <input type="text" id="nombre" name="nombre">
+                        <i class="fa-solid fa-user"></i><label for="nombre"><b> Nombre</b></label><i
+                            class="fas fa-exclamation-circle failure-icon"></i>
+                        <span class="error"></span>
+                        <br><br>
+                        <input type="text" id="mail" name="mail">
+                        <i class="fa-solid fa-envelope"></i><label for="mail"><b> Mail</b></label><i
+                            class="fas fa-exclamation-circle failure-icon"></i>
+                        <span class="error"></span>
+                        <br><br>
+                        <fieldset>
+                            <legend><b>Motivo de la Consulta</b></legend>
+                            <input type="radio" name="consulta" id="generales" checked>
+                            <label for="generales">Consulta General</label><br>
+                            <input type="radio" name="consulta" id="trabajo">
+                            <label for="trabajo">Trabajá con nosotros</label><br>
+                            <input type="radio" name="consulta" id="problemas">
+                            <label for="problemas">Problemas con la Página</label><br>
+                            <input type="radio" name="consulta" id="otro">
+                            <label for="otro">Otro</label>
+                        </fieldset>
+                        </div>
+                        <br>
+                        <div id="formParte2">
+                        <label for="mensaje"><b>Mensaje</b></label><i
+                            class="fas fa-exclamation-circle failure-icon"></i><span class="error"></span><br>
+                        <textarea name="mensaje" id="mensaje" cols="50" rows="7"></textarea>
+                        <br>
+                        <button type="submit" id="submit">Enviar</button>
+                    </div>
+                    </form>
+                    <iframe id="mapa"
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3283.840182708294!2d-58.37250044960163!3d-34.60820258036243!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95a3352c95f0d4f5%3A0xee8dc0a5eb259e82!2sBalcarce%2050%2C%20C1064%20CABA!5e0!3m2!1ses-419!2sar!4v1666022595491!5m2!1ses-419!2sar"
+                        height="480" width="480" allowfullscreen="" loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
+        </div>
+
+        <script>
+            let id = (id) => document.getElementById(id);
+            let classes = (classes) => document.getElementsByClassName(classes);
+
+            let nombre = id("nombre"),
+                mail = id("mail"),
+                mensaje = id("mensaje"),
+                formulario = id("formulario"),
+
+                errorMsg = classes("error"),
+                failureIcon = classes("failure-icon");
+
+            formulario.addEventListener("submit", (e) => {
+
+
+                validarCampo(nombre, 0, e);
+                validarCampo(mensaje, 2, e);
+                validarMail(e)
+
+                if(validarCampo(nombre, 0, e) && validarCampo(mensaje, 2, e) && validarMail(e)){
+                    alert("Su mensaje fue enviado. Gracias por comunicarse con nosotros!")
+                }
+
+
+            });
+
+            let validarCampo = (id, serial, evento) => {
+                if (id.value === "") {
+                    evento.preventDefault();
+                    errorMsg[serial].innerHTML = "<b>Ingresa un " + id.name + "</b>";
+                    failureIcon[serial].style.opacity = "1";
+                    if (id === mensaje) {
+                        id.style.border = "2px solid var(--secondary-color)";
+                    } else {
+                        id.style.borderBottom = "2px solid var(--secondary-color)";
+                    }
+                    return false;
+                } else {
+                    errorMsg[serial].innerHTML = "";
+                    failureIcon[serial].style.opacity = "0";
+                    if (id === mensaje) {
+                        id.style.border = "1px solid var(--main-color)";
+                    } else {
+                        id.style.borderBottom = "1px solid var(--main-color)";
+                    }
+                    return true;
+                }
+            }
+
+            let validarMail = (evento) => {
+                if (!mail.value.includes("@") && !mail.value.includes(".")) {
+                    evento.preventDefault();
+                    errorMsg[1].innerHTML = "<b>Ingresa un mail válido</b>";
+                    failureIcon[1].style.opacity = "1";
+                    mail.style.borderBottom = "2px solid var(--secondary-color)";
+                    return false
+                } else {
+                    errorMsg[1].innerHTML = "";
+                    failureIcon[1].style.opacity = "0";
+                    mail.style.borderBottom = "1px solid var(--main-color)";
+                    return true
+                }
+            }      
+        </script>
+
+        <aside>
+            <div>
+                <h3>Latest Posts</h3>
+                <hr>
+                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Delectus eum quam magnam quis provident
+                    voluptatibus perspiciatis repellendus harum nam. Temporibus aut aliquid unde voluptates quos beatae
+                    natus adipisci reiciendis soluta! Perspiciatis, ea architecto eveniet illo ex, non expedita est
+                    perferendis quisquam tempore consectetur voluptas earum, accusantium repellat voluptatem cum alias!
+                </p>
+            </div>
+            <div>
+                <h3>Seguinos en redes!</h3>
+                <hr>
+                <div class="redes">
+                    <a target="_blank" href="https://twitter.com"><i class="fa-brands fa-twitter icon twitter"></i></a>
+                    <a target="_blank" href="https://facebook.com"><i
+                            class="fa-brands fa-facebook icon facebook"></i></i></a>
+                    <a target="_blank" href="https://instaram.com"><i
+                            class="fa-brands fa-instagram icon instagram"></i></a>
+                    <a target="_blank" href="https://pinterest.es"><i
+                            class="fa-brands fa-pinterest icon pinterest"></i></a>
+                </div>
+            </div>
+        </aside>
+
+    </main>
+
+
+
+
+
+    <!-------------------------------Footer----------------------------->
+
+    <footer>
+        <div>
+            <a target="_blank" href="https://twitter.com"><i class="fa-brands fa-twitter icon twitter"></i></a>
+            <a target="_blank" href="https://facebook.com"><i class="fa-brands fa-facebook icon facebook"></i></i></a>
+            <a target="_blank" href="https://instaram.com"><i class="fa-brands fa-instagram icon instagram"></i></a>
+            <a target="_blank" href="https://pinterest.es"><i class="fa-brands fa-pinterest icon pinterest"></i></a>
+        </div>
+        <p id="derechos">Created by @samu_marcano & @MacaGQ<br>Derechos Reservados 2022</p>
+    </footer>
+
+
+
+</body>
+
+</html>
