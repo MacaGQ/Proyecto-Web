@@ -661,10 +661,13 @@ fieldset {
 .carrousel a {
     border-style: none;
     width: 32%;
+    max-height: 100%;
+    border-radius: 10px;
 }
 
 .imgCarrousel {
-    border-radius: 5px;
+     border-radius: 10px;
+     max-height: 100%;
 }
 
 .carrousel .puntos {
@@ -675,6 +678,7 @@ fieldset {
     align-items: center;
     padding: .5em;
 }
+
 .carrousel .punto {
     background-color: var(--main-color);
     list-style-type: none;
@@ -684,14 +688,19 @@ fieldset {
     border-radius: 50%;
 }
 
+.carrousel .punto:hover {
+    cursor: pointer;
+}
+
 .carrousel .punto.activo {
     background-color: var(--secondary-color);
 }
 
+
 .imgQuienesSomos {
     max-height: 500px;
     width: auto;
-    max-width: 800px;
+    max-width: 100%;
 }
 
 .quienesSomos {
