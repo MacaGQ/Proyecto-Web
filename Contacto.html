@@ -94,6 +94,7 @@
         </div>
 
         <script>
+            const expRegMail = /[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]/;
             let id = (id) => document.getElementById(id);
             let classes = (classes) => document.getElementsByClassName(classes);
 
@@ -143,7 +144,7 @@
             }
 
             let validarMail = (evento) => {
-                if (!mail.value.includes("@") && !mail.value.includes(".")) {
+                if (!expRegMail.test(mail.value)) {
                     evento.preventDefault();
                     errorMsg[1].innerHTML = "<b>Ingresa un mail válido</b>";
                     failureIcon[1].style.opacity = "1";
