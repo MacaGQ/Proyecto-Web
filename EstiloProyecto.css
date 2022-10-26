@@ -715,7 +715,3 @@ fieldset {
     flex-direction: row;
     align-items: center;
 }
-
-nav ul{
-    z-index: 1;
-}
