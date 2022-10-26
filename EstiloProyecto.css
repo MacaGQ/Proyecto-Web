@@ -12,7 +12,7 @@
     --color-twitter: #1DA1F2;
     --color-facebook: #4267B2;
     --color-instagram: #C13584;
-    --color-pinterest: #E60023;
+    --color-youtube: #FF0000;
 }
 
 
@@ -53,8 +53,8 @@ body {
     color: var(--color-instagram)
 }
 
-#pinterest {
-    color: var(--color-pinterest)
+#youtube {
+    color: var(--color-youtube)
 }
 
 #topContainer .icon:hover {
@@ -338,8 +338,8 @@ aside>div {
     color: var(--color-instagram);
 }
 
-.pinterest:hover {
-    color: var(--color-pinterest)
+.youtube:hover {
+    color: var(--color-youtube)
 }
 
 /*------------------------------Responsive------------------------------*/
