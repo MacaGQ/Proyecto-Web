@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<!----------------------------------Head-------------------------------->
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TopGAMES</title>
+    <link rel="icon" type="png" href="https://cdn1.iconfinder.com/data/icons/locations-redesign/48/Games1-512.png"/>
+    <!-----Fuentes----->
+    <link rel="stylesheet" href="EstiloProyecto.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Gemunu+Libre&family=Oswald:wght@300&family=Poppins:wght@300&family=Silkscreen:wght@700&display=swap"
+        rel="stylesheet">
+    <!-----Scritps----->
+    <script src="scripts.js"></script>
+    <script src="https://unpkg.com/vue@next"></script>
+    <script src="https://kit.fontawesome.com/814a59788f.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.1.3/axios.min.js"></script>
+</head>
+
+<!-------------------------------Body--------------------------->
+
+<body>
+    <!-------------------------------Header----------------------------->
+    <header>
+        <div id="tituloPagina">
+            <div class="logo-efect"><img onload="animacion()"
+                    src="https://cdn1.iconfinder.com/data/icons/locations-redesign/48/Games1-512.png" alt="">
+            </div>
+            <h1><a href="Index.html">Top GAMES</a></h1>
+        </div>
+        <nav>
+            <ul class="menu_principal">
+                <li><a href="#QuienesSomos">Estrenos</a></li>
+                <li><a href="Opiniones.html">Opiniones</a></li>
+                <li><a href="Contacto.html">Contacto</a></li>
+                <div id="divRegistro">
+                    <li><a id="registro" href="">Suscribirse</a></li>
+                </div>
+            </ul>
+        </nav>
+        <!-----------------------Hamburger Menu------------------------->
+        <i id="menuIcon" class="fa-solid fa-bars" onclick="desplegarMenu()"></i>
+    </header>
+
+    <main>
+        <div class="contenedor_total">
+            <h2>Estrenos y Futuros Lanzmientos</h2>
+            <div id="app" class="tarjetas">
+                <div v-for="item in info" :key="item.id">
+                    <div class="tarjeta">
+                        <a target="_blank" :href="'https://www.dailymotion.com/video/'+item.id"><img class="img_tarj" :src="'https://www.dailymotion.com/thumbnail/video/'+item.id" alt=""></a>
+                        <spam class="card-title"><h3>{{item.title}}</h3></spam>
+                        <spam class="btn"><a target="_blank" :href="'https://www.dailymotion.com/video/'+item.id" class="btn">Reproducir</a></spam>
+                    </div>
+                </div> 
+            </div>
+        </div>
+        <aside>
+            <div>
+                <h3>Latest Posts</h3>
+                <hr>
+                <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident ut, illum a repellat quis omnis consequatur vitae quisquam odit delectus, deserunt rem at magni tempora! Ut iusto ducimus in aperiam eveniet. Culpa voluptas explicabo quam illum! Laboriosam consequatur facere excepturi. Quos rerum quas tempore eius, exercitationem nobis suscipit fuga omnis quasi eaque, quod expedita laboriosam magni consequuntur perferendis atque alias error, voluptatem cupiditate porro accusamus provident corporis labore aut! Aliquid odit delectus dolore, similique culpa expedita iste. At similique quo id natus eveniet sunt consectetur cupiditate fugiat illo dolore, eaque tenetur aperiam, veritatis nobis voluptas ea vel? Necessitatibus, suscipit eum?
+                </p>
+            </div>
+            <div>
+                <h3>Seguinos en redes!</h3>
+                <hr>
+                <div class="redes">
+                    <a target="_blank" href="https://twitter.com"><i class="fa-brands fa-twitter icon twitter"></i></a>
+                    <a target="_blank" href="https://facebook.com"><i
+                            class="fa-brands fa-facebook icon facebook"></i></i></a>
+                    <a target="_blank" href="https://instaram.com"><i
+                            class="fa-brands fa-instagram icon instagram"></i></a>
+                    <a target="_blank" href="https://pinterest.es"><i
+                            class="fa-brands fa-pinterest icon pinterest"></i></a>
+                </div>
+            </div>
+        </aside>
+
+    </main>
+
+
+
+
+    <!-------------------------------Footer----------------------------->
+
+    <footer>
+        <div>
+            <a target="_blank" href="https://twitter.com"><i class="fa-brands fa-twitter icon twitter"></i></a>
+            <a target="_blank" href="https://facebook.com"><i class="fa-brands fa-facebook icon facebook"></i></i></a>
+            <a target="_blank" href="https://instaram.com"><i class="fa-brands fa-instagram icon instagram"></i></a>
+            <a target="_blank" href="https://pinterest.es"><i class="fa-brands fa-pinterest icon pinterest"></i></a>
+        </div>
+        <p id="derechos">Created by @samu_marcano & @MacaGQ<br>Derechos Reservados 2022</p>
+    </footer>
+    
+    <script type="text/javascript">
+        new Vue({
+            el:"#app",
+            data:{ info:[] },
+            mounted() {
+                axios.get("https://api.dailymotion.com/videos?tags=games&sort=recent")
+                .then (respuesta=>this.info=respuesta.data.list)
+            }
+
+        })
+    </script>
+</body>
+
+</html>
