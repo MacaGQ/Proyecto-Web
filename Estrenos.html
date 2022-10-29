@@ -35,7 +35,8 @@
         </div>
         <nav>
             <ul class="menu_principal">
-                <li><a href="#QuienesSomos">Estrenos</a></li>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="Estrenos.html">Estrenos</a></li>
                 <li><a href="Opiniones.html">Opiniones</a></li>
                 <li><a href="Contacto.html">Contacto</a></li>
                 <div id="divRegistro">
@@ -77,25 +78,21 @@
                             class="fa-brands fa-facebook icon facebook"></i></i></a>
                     <a target="_blank" href="https://instaram.com"><i
                             class="fa-brands fa-instagram icon instagram"></i></a>
-                    <a target="_blank" href="https://pinterest.es"><i
-                            class="fa-brands fa-pinterest icon pinterest"></i></a>
+                            <a target="_blank" href="https://youtube.com"><i class="fa-brands fa-youtube icon youtube"></i></a>
                 </div>
             </div>
         </aside>
 
     </main>
 
-
-
-
     <!-------------------------------Footer----------------------------->
 
     <footer>
-        <div>
+        <div class="iconos_footer">
             <a target="_blank" href="https://twitter.com"><i class="fa-brands fa-twitter icon twitter"></i></a>
             <a target="_blank" href="https://facebook.com"><i class="fa-brands fa-facebook icon facebook"></i></i></a>
-            <a target="_blank" href="https://instaram.com"><i class="fa-brands fa-instagram icon instagram"></i></a>
-            <a target="_blank" href="https://pinterest.es"><i class="fa-brands fa-pinterest icon pinterest"></i></a>
+            <a target="_blank" href="https://instagram.com"><i class="fa-brands fa-instagram icon instagram"></i></a>
+            <a target="_blank" href="https://youtube.com"><i class="fa-brands fa-youtube icon youtube"></i></a>
         </div>
         <p id="derechos">Created by @samu_marcano & @MacaGQ<br>Derechos Reservados 2022</p>
     </footer>
@@ -108,9 +105,7 @@
                 axios.get("https://api.dailymotion.com/videos?tags=games&sort=recent")
                 .then (respuesta=>this.info=respuesta.data.list)
             }
-
         })
     </script>
 </body>
-
 </html>

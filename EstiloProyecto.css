@@ -59,10 +59,6 @@ body {
     color: var(--color-youtube)
 }
 
-#topContainer .icon:hover {
-    color: var(--main-color);
-}
-
 /*------------------------------Header--------------------------------*/
 
 header {
@@ -178,8 +174,6 @@ nav a:hover {
     padding-right: 5px;
     cursor: pointer;
 }
-
-
 
 /*---------------------------------Body---------------------------------*/
 main {
@@ -446,6 +440,27 @@ aside>div {
     .contenedor_total {
         width: 100%;
     }
+
+    .opiniones {
+        flex: 0 0 30%;
+    }
+}
+
+@media (max-width: 800px) {
+    #divFormulario {
+        flex-direction: column-reverse;
+        justify-content: space-between;
+    }
+
+    form {
+        max-width: 100%;
+        padding-top: 20px;
+    }
+
+    #mapa {
+        max-width: 100%;
+    }
+
 }
 
 @media (max-width: 450px) {
@@ -462,6 +477,27 @@ aside>div {
     .tarjetas {
         grid-template-columns: repeat(1, 1fr);
     }
+
+    .opiniones {
+        flex: 0 0 90%
+    }
+}
+
+@media (max-width: 800px) {
+    #divFormulario {
+        flex-direction: column-reverse;
+        justify-content: space-between;
+    }
+
+    form {
+        max-width: 100%;
+        padding-top: 20px;
+    }
+
+    #mapa {
+        max-width: 100%;
+    }
+
 }
 
 /*---------------------------------Footer-------------------------------*/
@@ -475,13 +511,17 @@ footer {
     position: relative;
 }
 
+.iconos_footer {
+    text-align: center;
+}
+
 #derechos {
     text-align: center;
     color: white;
     font-size: 10px;
 }
 
-/*----------------Cosas para unificar en la hoja de estilos-----------------*/
+/*---------------------Contacto----------------------*/
 
 #contactForm {
     display: block;
@@ -560,6 +600,9 @@ fieldset {
     opacity: 0;
 }
 
+
+/*------------------Opiniones------------------*/
+
 .divOpiniones {
    flex-wrap: wrap;
    flex-direction: row;
@@ -608,36 +651,6 @@ fieldset {
     text-align: right;
     font-weight: bolder;
 }
-
-@media (max-width: 800px) {
-    #divFormulario {
-        flex-direction: column-reverse;
-        justify-content: space-between;
-    }
-
-    form {
-        max-width: 100%;
-        padding-top: 20px;
-    }
-
-    #mapa {
-        max-width: 100%;
-    }
-
-}
-
-@media (max-width: 850px) {
-    .opiniones {
-        flex: 0 0 30%;
-    }
-}
-
-@media (max-width: 450px) {
-    .opiniones {
-        flex: 0 0 90%
-    }
-}
-
 
 /* Estilos para el carrousel */
 
@@ -707,7 +720,6 @@ fieldset {
     background-color: var(--secondary-color);
 }
 
-
 .imgQuienesSomos {
     max-height: 500px;
     width: auto;
@@ -727,6 +739,7 @@ fieldset {
     align-items: center;
 }
 
+/*------------------Estrenos-------------------*/
 
 .contenedor_total {
     background-color: var(--main-color);
@@ -746,7 +759,6 @@ fieldset {
 }
 
 .tarjeta {
-
     background: linear-gradient(77deg, rgb(104, 10, 10) 0%, rgb(121, 9, 9) 37%, rgb(176, 25, 25) 58%, rgb(148, 36, 36) 75%, rgb(168, 21, 21) 92%);
     color: black;
     padding: 15px;
@@ -763,11 +775,11 @@ fieldset {
     height: 50%;
     overflow: hidden;
 }
+
 .tarjeta:hover {
     opacity: 80%;
     transform: scale(1.1);
 }
-
 
 .tarjeta a {
     color: black;
@@ -779,6 +791,7 @@ fieldset {
     text-decoration: underline;
     font-weight: bolder;
 }
+
 .btn {
     text-align: center;
     text-decoration: none;
@@ -791,6 +804,7 @@ fieldset {
  color: white;
 
 }
+
 .textoArticulo {
     padding: 0 1%;
 }
